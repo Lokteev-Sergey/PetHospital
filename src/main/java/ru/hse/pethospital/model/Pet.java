@@ -20,11 +20,11 @@ public class Pet {
 
     @ManyToOne
     @JoinColumn(name = "master_id")
-    private Integer master;
+    private Master master;
 
     @ManyToOne
     @JoinColumn(name = "breed_id")
-    private Integer breed;
+    private Breed breed;
 
     @Column(name = "birth_date")
     private LocalDate birth_date;
@@ -36,7 +36,8 @@ public class Pet {
     private String chip;
 
     @Column(name = "sex")
-    private String sex;
+    @Enumerated(EnumType.STRING)
+    private Sex sex;
 
     @Column(name = "sterilization")
     private String sterilization;

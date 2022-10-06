@@ -5,6 +5,7 @@ import lombok.Getter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity(name = "reception")
@@ -18,14 +19,14 @@ public class Reception {
 
     @ManyToOne
     @JoinColumn(name = "doctor_id")
-    private Integer doctor;
+    private Doctor doctor;
 
     @ManyToOne
     @JoinColumn(name = "pet_id")
-    private Integer pet;
+    private Pet pet;
 
     @Column(name = "datetime")
-    private LocalDate datetime;
+    private LocalDateTime datetime;
 
     @Column(name = "description")
     private String description;

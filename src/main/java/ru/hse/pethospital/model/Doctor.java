@@ -23,7 +23,7 @@ public class Doctor {
     private String patronymic;
     @ManyToOne
     @JoinColumn(name = "specialization_id")
-    private Integer specialization_id;
+    private Specialization specialization;
 
     @Column(name = "experience")
     private String experience;
