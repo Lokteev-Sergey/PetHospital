@@ -1,24 +1,23 @@
 
 create table type
 (
-    id         SERIAL PRIMARY KEY,
+    id         BIGINT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(128),
-    code VARCHAR(128) UNIQUE,
-
+    code VARCHAR(128) UNIQUE
 );
 create table breed
 (
-    id         SERIAL PRIMARY KEY,
+    id         BIGINT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(128),
     code VARCHAR(128) UNIQUE,
-    type_id INTEGER
+    type_id BIGINT
 );
 alter table breed
     add constraint pet_breed_id foreign key (type_id) references type (id);
 
 create table master
 (
-    id         SERIAL PRIMARY KEY,
+    id         BIGINT AUTO_INCREMENT PRIMARY KEY,
     firstname VARCHAR(64) NOT NULL,
     lastname  VARCHAR(64) NOT NULL,
     patronymic VARCHAR(64) ,
@@ -30,18 +29,18 @@ create table master
 
 create table specialization
 (
-    id         SERIAL PRIMARY KEY,
+    id         BIGINT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(128),
     code VARCHAR(128) UNIQUE
 );
 
 create table doctor
 (
-    id         SERIAL PRIMARY KEY,
+    id         BIGINT AUTO_INCREMENT PRIMARY KEY,
     firstname  VARCHAR(128) NOT NULL,
     lastname  VARCHAR(128) NOT NULL,
     patronymic  VARCHAR(128) ,
-    specialization_id INTEGER,
+    specialization_id BIGINT,
     experience VARCHAR(1024),
     notes VARCHAR(1024)
 );
@@ -52,10 +51,10 @@ alter table doctor
 
 create table pet
 (
-    id         SERIAL PRIMARY KEY,
-    master_id    INTEGER      NOT NULL,
+    id         BIGINT AUTO_INCREMENT PRIMARY KEY,
+    master_id    BIGINT      NOT NULL,
     nickname VARCHAR(64) NOT NULL,
-    breed_id INTEGER,
+    breed_id BIGINT,
     colour VARCHAR(64),
     chip VARCHAR(64) UNIQUE,
     birth_date date,
@@ -71,9 +70,9 @@ alter table pet
 
 create table reception
 (
-    id         SERIAL PRIMARY KEY,
-    doctor_id INTEGER      NOT NULL,
-    pet_id INTEGER      NOT NULL,
+    id         BIGINT AUTO_INCREMENT PRIMARY KEY,
+    doctor_id BIGINT      NOT NULL,
+    pet_id BIGINT      NOT NULL,
     datetime  timestamp,
     description VARCHAR(1024),
     heal VARCHAR(1024)
