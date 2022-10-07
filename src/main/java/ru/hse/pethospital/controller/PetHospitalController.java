@@ -2,6 +2,8 @@ package ru.hse.pethospital.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import ru.hse.pethospital.model.Breed;
 import ru.hse.pethospital.model.Reception;
@@ -18,7 +20,12 @@ public class PetHospitalController {
 
     @GetMapping(value = "/reception")
     public List<Reception> getReceptions() {
-        return receptionRepository.findAll();
+        return receptionRepository.findAllByOrderByDatetimeDesc();
+    }
+
+    @PostMapping(value = "/reception")
+    public Reception saveReception(@RequestBody Reception reception) {
+        return receptionRepository.save(reception);
     }
 
     @GetMapping(value = "/breed")

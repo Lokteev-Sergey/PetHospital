@@ -1,7 +1,9 @@
 package ru.hse.pethospital.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import ru.hse.pethospital.model.Pet;
 
-public interface PetRepository extends JpaRepository<Pet, Integer> {
+@Repository
+public interface PetRepository extends JpaRepository<Pet, Long> {
 }

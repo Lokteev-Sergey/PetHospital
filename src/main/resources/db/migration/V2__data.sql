@@ -22,3 +22,5 @@ values ('mongrel_dog' , 'беспородная собака', (SELECT type.id F
         ('cardiologist' , 'кардиолог'),
         ('dentist' , 'стоматолог'),
         ('therapist' , 'терапевт');
+
+

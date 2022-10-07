@@ -11,7 +11,7 @@ public class Master {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "firstname")
     private String firstname;
